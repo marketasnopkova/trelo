@@ -3,11 +3,23 @@
 beforeEach( () => {
 
   cy
-    .visit(); // doplň si adresu svojho boardu
+    .visit('/board/54526309074'); // doplň si adresu svojho boardu
 
 });
 
 it('over vsetky zaskrtnute tasky', () => {
+
+  cy.get('.Task input').then(items => {
+    expect(items[0]).to.not.be.checked
+    expect(items[1]).to.be.checked
+
+  })
+
+  cy.get('.Task_title').should(items => {
+    expect(items[0]).have.not.class('completed')
+    expect(items[1]).have.class('completed')
+
+  })
 
   // 1. zaškrtni si jeden z taskov
   // 2. použi príkaz .then() a over obidva tasky v zozname naraz

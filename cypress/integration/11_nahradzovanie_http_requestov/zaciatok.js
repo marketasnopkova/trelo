@@ -6,19 +6,32 @@ beforeEach( () => {
     .server()
 
   cy
-    .route('/api/boards')
+    .route({
+      method: 'GET',
+      url: '/api/boards',
+      response: 'fx:emptyBoardList'
+    })
     .as('boardList')
+
+    cy
+    .route({
+      method: 'POST',
+      url: '/api/boards',
+      response: 'fx:emptyBoardList'
+      status: 500
+    })
+    .as('createBoard')
 
   cy
     .visit('/');
 
 });
 
-it.only('prazdny zoznam boardov', () => {
+it('prazdny zoznam boardov', () => {
 
 })
 
-it('chybova hlaska pri vytvoreni boardu', () => {
+it.only('chybova hlaska pri vytvoreni boardu', () => {
 
   cy
     .get('#new-board')
@@ -31,5 +44,7 @@ it('chybova hlaska pri vytvoreni boardu', () => {
   cy
     .contains('Save')
     .click()
+
+  cy.get('#errorMessage').should('be.visible')
 
 })

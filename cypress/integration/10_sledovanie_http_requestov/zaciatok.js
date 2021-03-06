@@ -2,12 +2,18 @@
 
 beforeEach( () => {
 
+  cy.server()
+  cy.route('/api/boards').as('boardList')
+  cy.route('POST', '/api/boards').as('createBoard')
+
   cy
     .visit('/');
 
 });
 
-it.only('nacitanie zoznamu boardov', () => {
+it('nacitanie zoznamu boardov', () => {
+
+  cy.wait('@boardList')
 
   cy
     .get('.board_item')
@@ -15,7 +21,7 @@ it.only('nacitanie zoznamu boardov', () => {
 
 })
 
-it('vytvorenie noveho boardu', () => {
+it.only('vytvorenie noveho boardu', () => {
 
   cy
     .get('#new-board')
@@ -28,5 +34,15 @@ it('vytvorenie noveho boardu', () => {
   cy
     .contains('Save')
     .click()
+
+  cy.wait('@createBoard').then(zahrada => {
+    expect(zahrada.status).to.eq(201)
+    expect(zahrada.request.body.name).to.eq('nova zahrada')
+    expect(zahrada.response.body.name).to.eq('nova zahrada')
+    expect(zahrada.response.body.starred).to.be.false
+  })
+  
+ // cy.wait('@createBoard').its('response.name').should('be.text', "nova zahrada")
+
 
 })

@@ -1,6 +1,32 @@
 {
-  "boards": [],
-  "tasks": [],
+  "boards": [
+    {
+      "name": "nový board",
+      "user": 0,
+      "id": 73027002737,
+      "starred": false,
+      "created": "2021-03-06"
+    }
+  ],
+  "tasks": [
+    {
+      "boardId": 73027002737,
+      "description": "",
+      "completed": false,
+      "listId": 72756716401,
+      "title": "kúpiť mlieko",
+      "id": 65688594096,
+      "created": "2021-03-06",
+      "deadline": "2021-03-09"
+    }
+  ],
   "users": [],
-  "lists": []
+  "lists": [
+    {
+      "boardId": 73027002737,
+      "title": "nový zoznam",
+      "id": 72756716401,
+      "created": "2021-03-06"
+    }
+  ]
 }

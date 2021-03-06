@@ -19,8 +19,7 @@ beforeEach(() => {
 it('ohviezdickovanie boardu', () => {
 
   boardList
-    .star()
-  
+    .star()  
 });
 
 it('otvorenie boardu', () => {

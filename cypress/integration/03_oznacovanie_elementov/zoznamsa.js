@@ -1,6 +1,26 @@
 /// <reference types="cypress" />
 
+const { createVoidZero } = require("typescript");
+
 it('oznacovanie elementov', () => {
+
+  cy
+    .visit('/');
+
+  cy  
+    .get('.background_title');
+
+  cy 
+    .contains('My Boards');
+
+  cy
+    .get('.board_newItem').click();
+
+  cy
+    .get('.board_addBoard').type('první');
+
+  cy 
+    .get('#new-board > div > button').click();
 
   /* 
 

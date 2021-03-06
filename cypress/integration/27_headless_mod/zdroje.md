@@ -6,3 +6,7 @@
 * [screenshot API slúžiace k nastaveniu správania screenshotov](https://docs.cypress.io/api/plugins/after-screenshot-api.html#Syntax)
 * [vizuálne testovanie v Cypresse](https://docs.cypress.io/guides/tooling/visual-testing.html#Functional-vs-visual-testing)
 * [testovanie v rôznych browseroch](https://docs.cypress.io/guides/guides/cross-browser-testing.html#Periodic-Basis)
+
+napsat do konzoly s npm start
+a pak
+npx cypress run --spec ./cypress/integration/27_headless_mod/zaciatok.ts

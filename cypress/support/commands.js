@@ -12,8 +12,7 @@ Cypress.Commands.add('addTask', (name) => {
 
 Cypress.Commands.add('loginUser', (email, password) => {
 
-  cy
-    .request({
+  cy.request({
       method: 'POST',
       url: '/login',
       body: { email, password }
@@ -23,3 +22,4 @@ Cypress.Commands.add('loginUser', (email, password) => {
     })
 
 })
+

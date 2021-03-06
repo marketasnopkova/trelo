@@ -1,13 +1,11 @@
 beforeEach(() => {
   
-  cy
-    .request('POST', '/api/reset');
+  cy.task('resetDb');
 
 });
 
 it('zaciatok testu v cistom stave', () => {
 
-  cy
-    .visit('/')
+  cy.visit('/')
   
 });

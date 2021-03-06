@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+
+
 beforeEach(() => {
 
   cy
@@ -9,15 +11,7 @@ beforeEach(() => {
 
 it('vytvorenie noveho tasku', () => {
 
-  cy
-    .visit('/board/11613338823')
-
-  cy
-    .contains('Add a card')
-    .click()
-
-  cy
-    .get('[data-id="newTaskTitle"]')
-    .type('vymyslieť názov{enter}')
+  cy.visit('/board/1301793973')
+  cy.addTask('vymyslet název')
   
 });
